@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word-Counter</title>
+    <style>
+        h1{
+            padding:10px 10px;
+            font-size: 40px;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            height: 40px;
+            width: 100%;
+            background-color: pink;
+            text-align: center;
+         }
+        body{
+            text-align: center;
+            background-color:beige;
+        }
+        #textArea{
+            border:5px groove red;
+            width:90%;
+            height: 200px;
+            font-size: 20px;
+            font-family:cursive;
+        }
+        p{
+            padding:5px 5px;
+            font-size:20px;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            background-color: pink;
+            text-align: center;
+        }
+        .count{
+            font-size: 30px;
+
+        }
+</style>
+
+</head>
+
+<body>
+    
+        <h1>Word Counter</h1>
+            <textarea id="textArea"></textarea>
+        <p>
+            <span class="count" id="words"> 0 </span> Words and  
+            <span class="count" id="char"> 0 </span> Characters
+        </p>
+       
+        <!-- Now we Will start Script -->
+         
+        <script>
+           
+           let txtbox = document.getElementById("textArea").addEventListener('input', function(){
+                 var text = this.value;
+                 let char = text.length;
+
+                 document.getElementById("char").innerHTML = char;
+
+                 text = text.trim();
+                 let words = text.split(" ");
+                 let cleanList = words.filter(function(elm){
+                    return elm != " ";
+
+                 });
+                 document.getElementById("words").innerHTML = cleanList.length;
+            });           
+            
+        </script>
+</body>
+
+</html>
